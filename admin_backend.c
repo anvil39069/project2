@@ -6,7 +6,7 @@
 void sales();
 void addbook();
 void available_books();
-
+//seeing to the things here
 struct books b;
 void addbook()
 {
