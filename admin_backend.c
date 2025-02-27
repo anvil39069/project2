@@ -6,8 +6,19 @@
 void sales();
 void addbook();
 void available_books();
-//seeing to the things here
+void addemployee_list();
+
+struct employee1{
+    char name[100];
+    char address[100];
+    char post[100];
+    long int phoneno;
+    int salary;
+};
+
+struct employee1 emp;
 struct books b;
+
 void addbook()
 {
     char ans;
@@ -105,3 +116,73 @@ void sales()
     }
     fclose(fp);
 }
+
+void addemployee_list()
+{
+    FILE *fe=fopen("Employee_report.txt","a+"); //also opened in append mode
+    char ans;
+    if (fe == NULL)
+    {
+        printf("Error opening file.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    int serialNumber = 1; // Default serial number
+
+    // Check if file is empty (to add the header)
+    fseek(fe, 0, SEEK_END);
+    if (ftell(fe) == 0) // If file size is 0, write the header
+    {
+        fprintf(fe, "%-5s | %-20s | %-20s | %-20s | %-30s| %-30d\n", "No.", "Employee Name", "Post","Address","Salary","Phone number");
+        fprintf(fe, "-------------------------------------------------------------\n");
+    }
+    else
+    {
+        // Count the number of emplooyes already in the file
+        rewind(fe); // Move pointer to the beginning of the file
+        char line[256];
+        while (fgets(line, sizeof(line), fe) != NULL)
+        {
+            if (isdigit(line[0])) // Check if the first character is a number
+            {
+                serialNumber++;
+            }
+        }
+    }
+
+    // Move to the end of the file before writing new entry
+    fseek(fe, 0, SEEK_END);
+
+    // Take input
+    do{
+    printf("\nEnter Employee Name: ");
+    scanf(" %[^\n]", emp.name);
+
+    printf("Enter Employee's Post: ");
+    scanf(" %[^\n]", emp.post);
+
+    printf("Enter Employee's Post ");
+    scanf(" %[^\n]", emp.address);
+
+    printf("Enter Employee's Salary: ");
+    scanf("%d", &emp.salary);
+
+    printf("Enter Employee's Phone number");
+    scanf("%d",&emp.phoneno);
+    
+
+    // Write book details with serial number
+    fprintf(fe, "%-5d | %-20s | %-20s | %-20s | RS %-30d | %-30d\n", serialNumber, emp.name,emp.post,emp.address,emp.salary,emp.phoneno);
+    printf("\nDo you wish to add more data[Y/N]   ");
+    getchar();
+    scanf("%c",&ans);
+    ans=toupper(ans);
+    }while(ans=='Y');
+    
+    fclose(fe);
+    
+
+    printf("\nEmployee added successfully!\n");
+}
+
+
