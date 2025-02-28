@@ -2,8 +2,11 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include"books.h"
-void sales();
+#include "books.h"
+#include "sales.h"
+
+void seesales();
+void salesreport();
 void addbook();
 void available_books();
 void addemployee_list();
@@ -16,10 +19,88 @@ struct employee1{
     int salary;
 };
 
+//structure area
+struct salesrep sales;
 struct employee1 emp;
 struct books b;
 
-void addbook()
+//append mode for easier access to both read and write without loss of data
+void salesreport()
+{
+    FILE *fs=fopen("Sales_report.txt","a+");
+    if (fs==NULL)
+    {
+        printf("Error opening file.\n");
+        exit(EXIT_FAILURE);
+    }
+    int serialNumber = 1; // Default serial number
+
+    // Check if file is empty (to add the header)
+    fseek(fs, 0, SEEK_END);
+    if (ftell(fs) == 0) // If file size is 0, write the header
+    {
+        fprintf(fs, "%-5s | %-20s\n", "No.", "Month", "Monthly Sales");
+        fprintf(fs, "-------------------------------------------\n");
+    }
+    else
+    {
+        // Count the number of books already in the file
+        rewind(fs); // Move pointer to the beginning of the file
+        char line[256];
+        while (fgets(line, sizeof(line), fs) != NULL)
+        {
+            if (isdigit(line[0])) // Check if the first character is a number
+            {
+                serialNumber++;
+            }
+        }
+    }
+
+    // Move to the end of the file before writing new entry
+    fseek(fs, 0, SEEK_END);
+
+    // Take input
+    char ans;
+    do
+    {
+        printf("\nEnter month: ");
+        scanf(" %[^\n]", sales.month);
+
+        printf("Enter sales for the month: ");
+        scanf(" %[^\n]", sales.sales);
+
+        // Write monthly sales details with serial number
+        fprintf(fs, "%-5d | %-20s | %-20d \n", serialNumber, sales.month, sales.sales);
+        printf("\nDo you wish to add more data[Y/N]   ");
+        getchar();
+        scanf("%c", &ans);
+        ans = toupper(ans);
+    } while (ans == 'Y');
+
+    fclose(fs);
+
+    printf("\nSalesadded successfully!\n");
+
+}
+
+void seesales()//to show the  sales report
+{
+    FILE *fp;
+    fp = fopen("Sales_report.txt", "r");
+    if (fp == NULL)
+    {
+        printf("Error!!!!!\n");
+        exit(EXIT_FAILURE);
+    }
+    char line;
+    while (line = fgetc(fp) != EOF)
+    {
+        putchar(line);
+    }
+    fclose(fp);
+}
+
+void addbook()//to add books 
 {
     char ans;
     FILE *fp = fopen("book_list.txt", "a+"); // Open in append+read mode
@@ -82,7 +163,8 @@ void addbook()
 
     printf("\nBook added successfully!\n");
 }
-void available_books()
+
+void available_books()//to search for available books
 {
     FILE *file = fopen("book_list.txt", "r");
     if (file == NULL)
@@ -100,24 +182,7 @@ void available_books()
     fclose(file);
 }
 
-void sales()
-{
-    FILE *fp;
-    fp = fopen("Sales_report.txt", "r");
-    if (fp == NULL)
-    {
-        printf("Error!!!!!\n");
-        exit(EXIT_FAILURE);
-    }
-    char line;
-    while (line = fgetc(fp) != EOF)
-    {
-        putchar(line);
-    }
-    fclose(fp);
-}
-
-void addemployee_list()
+void addemployee_list()//to add the employee that is in the store
 {
     FILE *fe=fopen("Employee_report.txt","a+"); //also opened in append mode
     char ans;
