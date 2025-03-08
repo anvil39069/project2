@@ -40,11 +40,11 @@ The **Bookstore Management System** is a console-based application written in **
    ```
 3. Compile the C program:
    ```bash
-   gcc projectalpha.c -o alpha
+   gcc BSM_main.c -o BSM_main
    ```
 4. Run the executable:
    ```bash
-   ./projectalpha
+   ./BSM_main
    ```
 
 ## Usage
@@ -81,7 +81,7 @@ Developed as part of a learning project to enhance **C programming** skills and 
 ## Developed By
 
 - [**Alok Sharma**](https://github.com/alok-9898) - **Campus Roll Number: THA081BEI004**
-- [**Anvil Shakya**](https://github.com/anvil39069) - **Campus Roll Number: THA081BEI005**
+- [**Anvil Shakya**](https://github.com/anvil39069) - **Campus Roll Number: THA081BEI006**
 - [**Aviyan Sharma**](https://github.com/abhi-yang) - **Campus Roll Number: THA081BEI008**
 - [**Nishan Parajuli**](https://github.com/nishanparajuli) - **Campus Roll Number: THA081BEI023**
 
