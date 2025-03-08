@@ -18,7 +18,7 @@ struct employee1{
     long int phoneno;
     int salary;
 };
-
+//adding a new thing
 //structure area
 struct salesrep sales;
 struct employee1 emp;
