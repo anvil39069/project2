@@ -46,7 +46,7 @@ void searchbybook() {
     char book_name[200], line[200];
 
     printf("\nEnter the book you want to search: ");
-    getchar();  // Consume any leftover newline from previous input
+    getchar();  //consume the enter input
     scanf("%[^\n]", book_name);
 
     fp = fopen("book_list.txt", "r");
@@ -58,7 +58,7 @@ void searchbybook() {
     int match = 0;
     int header = 0;
 
-    // Convert book_name to uppercase for case-insensitive search
+    // Convert book_name to uppercase 
     char book_name_upper[200];
     strcpy(book_name_upper, book_name);
     for (int i = 0; book_name_upper[i]; i++) {
