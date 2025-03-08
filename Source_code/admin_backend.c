@@ -2,12 +2,12 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include"books.h"
+#include "books.h"
 void sales();
 void addbook();
 void available_books();
-
 struct books b;
+
 void addbook()
 {
     char ans;
@@ -74,20 +74,45 @@ void addbook()
 }
 void available_books()
 {
+    char line, sent;
     FILE *file = fopen("book_list.txt", "r");
-    if (file == NULL)
+    FILE *fpp = fopen("Second_hand.txt", "r");
+    if (file == NULL || fpp == NULL)
     {
         printf("Error opening file or file does not exist.\n");
-        return;
+        exit(EXIT_FAILURE);
     }
 
-    char line;
-    while ((line = fgetc(file)) != EOF)
+    int option;
+    printf("\n\t1. All Books\n\t2. Second hand books\n");
+    printf("\n\tEnter your option: ");
+    getchar(); // Consume any leftover newline from previous input
+    scanf("%d", &option);
+
+    switch (option)
     {
-        putchar(line);
-    }
+    case 1:
+        printf("\nDisplaying All Books:\n");
+        while ((line = fgetc(file)) != EOF)
+        {
+            putchar(line);
+        }
+        fclose(file);
+        break;
 
-    fclose(file);
+    case 2:
+        printf("\nDisplaying Second-hand Books:\n");
+        while ((sent = fgetc(fpp)) != EOF)
+        {
+            putchar(sent);
+        }
+        fclose(fpp);
+        break;
+
+    default:
+        printf("\n\t--------- Invalid INPUT ---------");
+        break;
+    }
 }
 
 void sales()

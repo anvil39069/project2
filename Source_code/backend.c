@@ -74,10 +74,10 @@ void customer_menu()
         searchby();
         break;
     case 2:
-        // sellbook();
+        sellbook();
         break;
     case 3:
-        // cart();
+        cart();
         break;
 
     default:

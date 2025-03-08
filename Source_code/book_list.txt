@@ -8,3 +8,10 @@ No.   | Book Name            | Author               | Genre                     
 6     | The Habit Journal    | James clear          | Self-Helping                                                           | RS 999       
 8     | Ikigai               | Francesc Miralles    | Self-help                                                              | RS 1899      
 9     | Norwegian wood       | Haruki Murakami      | Novel                                                                  | RS 1399      
+10    | 1984                 | George Orwell        | Novel                                                                  | RS 2200      
+11    | Pride and Prejudice  | Jane Austen          | Novel                                                                  | RS 3200      
+12    | To kill a Mocking bird | Harper Lee           | Novel                                                                  | RS 1985      
+13    | Man's Search for Meaning | Viktor Frankl        | Biography,Autobiography,Personal Narrative                             | RS 1799      
+14    | Brave New World      | Aldous Huxely        | Dystopian Novel                                                        | RS 3999      
+15   | Animal Farm          | George Orwell        | Satire,Political Satire,Dystopian Novel                                | RS 1755      
+16    | Alice in wonderland  | Lewis Carrol         | Children Novel                                                         | RS 147       
