@@ -78,12 +78,13 @@ Contributions are welcome! Fork the repository, make changes, and submit a pull 
 ---
 Developed as part of a learning project to enhance **C programming** skills and **software development** practices.
 
-## Developed by
+## Developed By
 
-- `Alok Sharma`    -    Campus Roll Number:- THA081BEI004
-- `Anvil Shakya`   -    Campus Roll Number:- THA081BEI005
-- `Aviyan Sharma`  -    Campus Roll Number:- THA081BEI008
-- `Nishan Parajuli`-    Campus Roll Number:- THA081BEI023
+- [**Alok Sharma**](https://github.com/alok-9898) - **Campus Roll Number: THA081BEI004**
+- [**Anvil Shakya**](https://github.com/anvil39069) - **Campus Roll Number: THA081BEI005**
+- [**Aviyan Sharma**](https://github.com/abhi-yang) - **Campus Roll Number: THA081BEI008**
+- [**Nishan Parajuli**](https://github.com/nishanparajuli) - **Campus Roll Number: THA081BEI023**
+
 
 
 
