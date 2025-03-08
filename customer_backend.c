@@ -8,6 +8,7 @@ struct books b,temp;
 void searchby();
 void searchbybook();
 void searchbyauthor();
+void searchbygenre();
 
 void searchby()
 {
