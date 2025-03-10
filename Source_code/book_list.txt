@@ -15,3 +15,4 @@ No.   | Book Name            | Author               | Genre                     
 14    | Brave New World      | Aldous Huxely        | Dystopian Novel                                                        | RS 3999      
 15   | Animal Farm          | George Orwell        | Satire,Political Satire,Dystopian Novel                                | RS 1755      
 16    | Alice in wonderland  | Lewis Carrol         | Children Novel                                                         | RS 147       
+16    | Harry Potter         | JK Rowling           | Fiction,Fantasy                                                        | RS 1000      

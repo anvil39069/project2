@@ -234,13 +234,78 @@ void searchbygenre()
 
 void cart()
 {
+    system("cls");
     FILE *fp;
-    fp = fopen("cart.txt", "w");
-    if (fp != NULL)
-    {
-        printf("Error on opening the file");
-        exit(0);
+    FILE *fpcart;
+    int serialnumber;
+    char book_name[200], line[200];
+
+    printf("\nEnter the book you want to search: ");
+    getchar();  //consume the enter input
+    scanf("%[^\n]", book_name);
+
+    fp = fopen("book_list.txt", "r");
+    fpcart = fopen("cart.txt","w+");
+    if (fp == NULL || fpcart == NULL) {
+        printf("\nError opening the file");
+        exit(EXIT_FAILURE);
     }
+
+    int match = 0;
+    int header = 0;
+
+    // Convert book_name to uppercase 
+    char book_name_upper[200];
+    strcpy(book_name_upper, book_name);
+    for (int i = 0; book_name_upper[i]; i++) {
+        book_name_upper[i] = toupper(book_name_upper[i]);
+    }
+
+    // Search for the book name in the file
+    while (fgets(line, sizeof(line), fp)) {
+        // Convert the line from the file to uppercase
+        char line_upper[200];
+        strcpy(line_upper, line);
+        for (int i = 0; line_upper[i]; i++) {
+            line_upper[i] = toupper(line_upper[i]);
+        }
+
+        // If the book name is found in the line, write it to the cart
+        if (strstr(line_upper, book_name_upper) != NULL) {
+            //write the book name to the cart file
+            fprintf(fpcart,"%s",line);
+            if (!header) {
+                // Print the header once
+                fprintf(fpcart,"%-5s | %-20s | %-20s | %-70s | %-10s\n", "No.", "Book Name", "Author", "Genre", "Price");
+                fprintf(fpcart,"-------------------------------------------------------------\n");
+                header = 1;
+                
+            }
+            // Print the matched line
+            fprintf(fpcart,"%s", line);
+            match = 1;
+        }
+        rewind(fpcart);
+
+        if (strstr(line_upper, book_name_upper) != NULL) {
+            fscanf(fp,"%s",line);
+
+            printf("The books in the cart are as below:\n\n");
+            if (!header) {
+                // Print the header once
+                fprintf(fpcart,"%-5s | %-20s | %-20s | %-70s | %-10s\n", "No.", "Book Name", "Author", "Genre", "Price");
+                fprintf(fpcart,"-------------------------------------------------------------\n");
+                header = 1;
+                
+            }
+            // Print the matched line
+            fprintf(fpcart,"%s", line);
+            match = 1;
+        }
+        fclose(fpcart);
+        fclose(fp);
+
+}
 }
 
 void sellbook()

@@ -2,3 +2,4 @@ No.   | Book Name            | Author               | Genre                     
 -------------------------------------------------------------
 1     | Animal Farm          | George Orwell        | Satire                                                                 | RS 1999      
 2     | Alice in wonderland  | Lewis Carrol         | Children Novel                                                         | RS 147       
+3     | Harry Potter         | JK Rowling           | Fiction,Fantasy                                                        | RS 1000      
