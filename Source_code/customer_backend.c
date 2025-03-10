@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include<time.h>
 #include <stdlib.h>
 #include "books.h"
 
@@ -215,7 +216,7 @@ void searchbygenre()
             {
                 // Print the header once
                 printf("\n%-5s | %-20s | %-20s | %-30s | %-10s\n", "No.", "Book Name", "Author", "Genre", "Price");
-                printf("-------------------------------------------------------------------------------\n");
+                printf("-------------------------------------------------------------------------------------------------------\n");
                 header = 1;
             }
             // Print the matched line
@@ -232,82 +233,82 @@ void searchbygenre()
     fclose(fp); // Close the file after processing
 }
 
-void cart()
-{
-    system("cls");
+void cart() {
+    system("cls"); // Clear the console (only works in Windows)
     FILE *fp;
     FILE *fpcart;
-    int serialnumber;
     char book_name[200], line[200];
+    char formatted_time[30]; // Buffer to store formatted time
+    time_t current_time;
+    struct tm *local_time;
 
-    printf("\nEnter the book you want to search: ");
-    getchar();  //consume the enter input
+    printf("\nEnter the book you want to add to the cart: ");
+    getchar(); // Consume the leftover newline
     scanf("%[^\n]", book_name);
 
     fp = fopen("book_list.txt", "r");
-    fpcart = fopen("cart.txt","w+");
+    fpcart = fopen("cart.txt", "a"); // Open in append mode
     if (fp == NULL || fpcart == NULL) {
-        printf("\nError opening the file");
+        printf("\nError opening the file(s)");
         exit(EXIT_FAILURE);
     }
 
     int match = 0;
     int header = 0;
 
-    // Convert book_name to uppercase 
+    // Convert book_name to uppercase for case-insensitive search
     char book_name_upper[200];
     strcpy(book_name_upper, book_name);
     for (int i = 0; book_name_upper[i]; i++) {
         book_name_upper[i] = toupper(book_name_upper[i]);
     }
 
-    // Search for the book name in the file
+    // Search for the book in the file
     while (fgets(line, sizeof(line), fp)) {
-        // Convert the line from the file to uppercase
+        // Convert the line to uppercase for comparison
         char line_upper[200];
         strcpy(line_upper, line);
         for (int i = 0; line_upper[i]; i++) {
             line_upper[i] = toupper(line_upper[i]);
         }
 
-        // If the book name is found in the line, write it to the cart
         if (strstr(line_upper, book_name_upper) != NULL) {
-            //write the book name to the cart file
-            fprintf(fpcart,"%s",line);
             if (!header) {
-                // Print the header once
-                fprintf(fpcart,"%-5s | %-20s | %-20s | %-70s | %-10s\n", "No.", "Book Name", "Author", "Genre", "Price");
-                fprintf(fpcart,"-------------------------------------------------------------\n");
+                // Print the header for the cart
+                printf("%-5s | %-20s | %-20s | %-70s | %-10s | %-20s\n", 
+                       "No.", "Book Name", "Author", "Genre", "Price", "Date of Purchase");
+                printf("---------------------------------------------------------------------------------------------------\n");
                 header = 1;
-                
             }
-            // Print the matched line
-            fprintf(fpcart,"%s", line);
+
+            // Get the current time
+            current_time = time(NULL);
+            local_time = localtime(&current_time);
+
+            // Format the time as a string
+            strftime(formatted_time, sizeof(formatted_time), "%Y-%m-%d %H:%M:%S", local_time);
+
+            // Write to the cart file
+            fprintf(fpcart, "%s | Date of Purchase: %s\n", line, formatted_time);
+
+            // Print the book details with the timestamp
+            printf("%s | %-20s\n", line, formatted_time);
+
             match = 1;
         }
-        rewind(fpcart);
+    }
 
-        if (strstr(line_upper, book_name_upper) != NULL) {
-            fscanf(fp,"%s",line);
+    if (!match) {
+        printf("\n---- Book not found in the inventory -----\n");
+    } else {
+        printf("\n---- Book successfully added to the cart! ----\n");
+    }
 
-            printf("The books in the cart are as below:\n\n");
-            if (!header) {
-                // Print the header once
-                fprintf(fpcart,"%-5s | %-20s | %-20s | %-70s | %-10s\n", "No.", "Book Name", "Author", "Genre", "Price");
-                fprintf(fpcart,"-------------------------------------------------------------\n");
-                header = 1;
-                
-            }
-            // Print the matched line
-            fprintf(fpcart,"%s", line);
-            match = 1;
-        }
-        fclose(fpcart);
-        fclose(fp);
-
-}
+    fclose(fpcart);
+    fclose(fp);
 }
 
+ 
 void sellbook()
 {
     char ans;

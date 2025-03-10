@@ -2,11 +2,16 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include<time.h>
 #include "books.h"
+#include "sales.h"
 void sales();
 void addbook();
 void available_books();
+
+//struct areas
 struct books b;
+struct sale s;
 
 void addbook()
 {
@@ -72,6 +77,7 @@ void addbook()
 
     printf("\nBook added successfully!\n");
 }
+
 void available_books()
 {
     char line, sent;
@@ -115,19 +121,59 @@ void available_books()
     }
 }
 
-void sales()
-{
-    FILE *fp;
-    fp = fopen("Sales_report.txt", "r");
-    if (fp == NULL)
-    {
-        printf("Error!!!!!\n");
+void sales() {
+    FILE *fp;  // File pointer for Sales_report.txt
+    FILE *fc;  // File pointer for Cart.txt
+    char line[256];
+    char month[3];
+    double monthly_sales = 0.0;
+    double total_sales = 0.0;
+
+    // Open files
+    fp = fopen("Sales_report.txt", "a+");
+    fc = fopen("Cart.txt", "r");
+    if (fp == NULL || fc == NULL) {
+        printf("Error opening file(s)!\n");
         exit(EXIT_FAILURE);
     }
-    char line;
-    while (line = fgetc(fp) != EOF)
-    {
-        putchar(line);
+
+    printf("Calculating monthly sales...\n");
+
+    // Read each line from cart.txt
+    while (fgets(line, sizeof(line), fc)) {
+        char book_name[100], purchase_date[20];
+        double price;
+
+        // Parse the line: Assume format is "Book | Author | Genre | Price | Date"
+        if (sscanf(line, "%*[^|]|%*[^|]|%*[^|]|%lf| Date of Purchase: %s", &price, purchase_date) == 2) {
+            // Extract the month from the purchase date (assume format "YYYY-MM-DD")
+            strncpy(month, &purchase_date[5], 2);
+            month[2] = '\0';  // Null-terminate the string
+
+            // Check if it's the current month
+            time_t now = time(NULL);
+            struct tm *current_time = localtime(&now);
+            char current_month[3];
+            snprintf(current_month, sizeof(current_month), "%02d", current_time->tm_mon + 1);
+
+            if (strcmp(month, current_month) == 0) {
+                monthly_sales += price;  // Add to monthly sales total
+            }
+
+            total_sales += price;  // Add to total sales
+        }
     }
+
+    // Write the monthly sales report to Sales_report.txt
+    fprintf(fp, "Monthly Sales Report:\n");
+    fprintf(fp, "----------------------\n");
+    fprintf(fp, "Total sales for the current month: %.2f\n", monthly_sales);
+    fprintf(fp, "Cumulative sales: %.2f\n", total_sales);
+
+    printf("Monthly sales: %.2f\n", monthly_sales);
+    printf("Cumulative sales: %.2f\n", total_sales);
+
+    // Close files
     fclose(fp);
+    fclose(fc);
 }
