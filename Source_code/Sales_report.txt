@@ -1,0 +1,6 @@
+Sales Report:
+----------------------
+Monthly Sales Breakdown:
+Month 03: RS 16850.00
+----------------------
+Total Cumulative Sales: RS 16850.00

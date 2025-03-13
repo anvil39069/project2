@@ -1,0 +1,10 @@
+10    | 1984                        | George Orwell        | Novel                                              | RS 2200      | Date of Purchase: 2025-03-13 17:29:54
+19    | A Thousand Splendid Suns    | Khaled Hosseini      | Novel                                              | RS 1200      | Date of Purchase: 2025-03-13 17:43:09
+18    | The Kite Runner             | Khaled Hosseini      | Novel                                              | RS 1100      | Date of Purchase: 2025-03-13 17:46:30
+10    | 1984                        | George Orwell        | Novel                                              | RS 2200      | Date of Purchase: 2025-03-13 17:57:28
+15    | Animal Farm                 | George Orwell        | Satire,Political Satire,Dystopian Novel            | RS 1755      | Date of Purchase: 2025-03-13 18:22:33
+1     | Atomic Habits               | James Clear          | Self-Helping                                       | RS 1299      | Date of Purchase: 2025-03-13 18:31:11
+9     | Norwegian wood              | Haruki Murakami      | Novel                                              | RS 1399      | Date of Purchase: 2025-03-13 19:22:58
+8     | Ikigai                      | Francesc Miralles    | Self-help                                          | RS 1899      | Date of Purchase: 2025-03-13 19:33:48
+8     | Ikigai                      | Francesc Miralles    | Self-help                                          | RS 1899    | Date of Purchase: 2025-03-13 19:39:56
+8     | Ikigai                    | Francesc Miralles    | Self-help                                     | RS 1899    | Date of Purchase: 2025-03-13 19:48:01

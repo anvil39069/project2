@@ -1,18 +1,20 @@
-No.   | Book Name            | Author               | Genre                                                                                                | Price     
--------------------------------------------------------------
-1     | One of us is lying   | Karen M.McManus      | Mystrey Yound adult literature                                                                       | RS 1099      
-1     | Atomic Habits        | James Clear          | Self-Helping                                                                                         | RS 1299      
-1     | Shirish ko phool     | Bishnu Kumari Waiba  | Novel                                                                                                | RS 899       
-1     | Solo leveling        | Chungong             | Portal Fantasy, Manhwa                                                                               | RS 1599      
-5     | Game of Thrones      | George R.R Martin    | Drama Series                                                           | RS 2999      
-6     | The Habit Journal    | James clear          | Self-Helping                                                           | RS 999       
-8     | Ikigai               | Francesc Miralles    | Self-help                                                              | RS 1899      
-9     | Norwegian wood       | Haruki Murakami      | Novel                                                                  | RS 1399      
-10    | 1984                 | George Orwell        | Novel                                                                  | RS 2200      
-11    | Pride and Prejudice  | Jane Austen          | Novel                                                                  | RS 3200      
-12    | To kill a Mocking bird | Harper Lee           | Novel                                                                  | RS 1985      
-13    | Man's Search for Meaning | Viktor Frankl        | Biography,Autobiography,Personal Narrative                             | RS 1799      
-14    | Brave New World      | Aldous Huxely        | Dystopian Novel                                                        | RS 3999      
-15   | Animal Farm          | George Orwell        | Satire,Political Satire,Dystopian Novel                                | RS 1755      
-16    | Alice in wonderland  | Lewis Carrol         | Children Novel                                                         | RS 147       
-16    | Harry Potter         | JK Rowling           | Fiction,Fantasy                                                        | RS 1000      
+No.   | Book Name                               | Author                        | Genre                                                                 | Price     
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+1     | One of us is lying                      | Karen M.McManus               | Mystrey Yound adult literature                                        | RS 1099      
+1     | Atomic Habits                           | James Clear                   | Self-Helping                                                          | RS 1299      
+1     | Shirish ko phool                        | Bishnu Kumari Waiba           | Novel                                                                 | RS 899       
+1     | Solo leveling                           | Chungong                      | Portal Fantasy, Manhwa                                                | RS 1599      
+5     | Game of Thrones                         | George R.R Martin             | Drama Series                                                          | RS 2999      
+6     | The Habit Journal                       | James clear                   | Self-Helping                                                          | RS 999       
+8     | Ikigai                                  | Francesc Miralles             | Self-help                                                             | RS 1899      
+9     | Norwegian wood                          | Haruki Murakami               | Novel                                                                 | RS 1399      
+10    | 1984                                    | George Orwell                 | Novel                                                                 | RS 2200      
+11    | Pride and Prejudice                     | Jane Austen                   | Novel                                                                 | RS 3200      
+12    | To kill a Mocking bird                  | Harper Lee                    | Novel                                                                 | RS 1985      
+13    | Man's Search for Meaning                | Viktor Frankl                 | Biography,Autobiography,Personal Narrative                            | RS 1799      
+14    | Brave New World                         | Aldous Huxely                 | Dystopian Novel                                                       | RS 3999      
+15    | Animal Farm                             | George Orwell                 | Satire,Political Satire,Dystopian Novel                               | RS 1755      
+16    | Alice in wonderland                     | Lewis Carrol                  | Children Novel                                                        | RS 147       
+16    | Harry Potter                            | JK Rowling                    | Fiction,Fantasy                                                       | RS 1000      
+18    | The Kite Runner                         | Khaled Hosseini               | Novel                                                                 | RS 1100      
+19    | A Thousand Splendid Suns                | Khaled Hosseini               | Novel                                                                 | RS 1200      
