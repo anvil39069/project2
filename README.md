@@ -57,7 +57,7 @@ The **Bookstore Management System** is a console-based application written in **
 
 ## Code Structure
 
-- `projectalpha.c`: Main source file containing all functionalities.
+- `BSM_main.c`: Main source file containing all functionalities.
 - `backend.c`: Handles backend related  operations.
 - `admin_backend.c`: Handles admin-related operations.
 - `customer_backend.c`: Manages customer functionalities.
@@ -81,7 +81,7 @@ Developed as part of a learning project to enhance **C programming** skills and 
 
 ## Developed by
 
-- `Alok Sharma`    -    Campus Roll Number:- THA081BEI004
-- `Anvil Shakya`   -    Campus Roll Number:- THA081BEI005
-- `Aviyan Sharma`  -    Campus Roll Number:- THA081BEI008
-- `Nishan Parajuli`-    Campus Roll Number:- THA081BEI023
+- [**Alok Sharma**](https://github.com/alok-9898) - **Campus Roll Number: THA081BEI004**
+- [**Anvil Shakya**](https://github.com/anvil39069) - **Campus Roll Number: THA081BEI006**
+- [**Aviyan Sharma**](https://github.com/abhi-yang) - **Campus Roll Number: THA081BEI008**
+- [**Nishan Parajuli**](https://github.com/nishanparajuli) - **Campus Roll Number: THA081BEI023**
