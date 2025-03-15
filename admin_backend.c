@@ -270,8 +270,6 @@ void updatebook() {
 }
    
 
-
-
 void sales() {
     FILE *fp;  // File pointer for Sales_report.txt
     FILE *fc;  // File pointer for Cart.txt
