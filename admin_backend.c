@@ -123,14 +123,7 @@ void available_books()
     }
 }
 
-
-// Function to update book records based on book name
-
-// Structure to store book details
-
-// Function to update book records based on book name
-
-// Structure to store book details
+// Function to remove the spaces
 void trim(char *str) {
     // Remove leading spaces
     int i = 0;
@@ -148,12 +141,6 @@ void trim(char *str) {
     }
     str[i + 1] = '\0';
 }
-
-// Function to update book records based on book name
-
-#define MAX_BOOKS 1000 // Maximum number of books
-
-// Structure to store book details
 
 
 // Function to update book records based on book name
